@@ -14,11 +14,15 @@ services:
         ipv4_address: "${PIWIGO_IP}"
   piwigo_db:
     extends:
-      file: "${TEMPLATE_FOLDER}/${MYSQL_TEMPLATE}.yml"
-      service: "${MYSQL_TEMPLATE}"
-    container_name: "${PIWIGO_HOSTNAME}-${MYSQL_NAME}"
-    hostname: "${PIWIGO_HOSTNAME}-${MYSQL_NAME}"
+      file: "${TEMPLATE_FOLDER}/${DB_TEMPLATE}.yml"
+      service: "${DB_TEMPLATE}"
+    image: "${MYSQL_IMAGE}"
+    container_name: "${PIWIGO_HOSTNAME}-${DB_NAME}"
+    hostname: "${PIWIGO_HOSTNAME}-${DB_NAME}"
+    environment:
+      MYSQL_ROOT_PASSWORD: "${PIWIGO_DB_ROOT_PASSWORD}"
+      MYSQL_DATABASE: "${PIWIGO_DB}"
+      MYSQL_USER: "${PIWIGO_DB_USER}"
+      MYSQL_PASSWORD: "${PIWIGO_DB_PASSWORD}"
     volumes: 
-      - "${VOLUME_FOLDER}/${PIWIGO_HOSTNAME}/mysql:/var/lib/mysql"
-
-
+      - "${VOLUME_FOLDER}/${PIWIGO_HOSTNAME}/${DB_NAME}:/var/lib/mysql"

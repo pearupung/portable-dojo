@@ -13,19 +13,9 @@ services:
       file: "${SERVICES_PATH}/piwigo.yml"
       service: piwigo_web
   piwigo-db:
-    image: mysql
-    container_name: piwigo-mysql
-    restart: unless-stopped
-    environment:
-      MYSQL_ROOT_PASSWORD: "example"
-      MYSQL_DATABASE: "piwigo"
-      MYSQL_USER: "piwigo"
-      MYSQL_PASSWORD: "Tere123"
-    volumes:
-      - /var/lib/docker-volumes/piwigo/db:/var/lib/mysql
-    networks:
-      services-network:
-        ipv4_address: 172.18.0.8
+    extends:
+      file: "${SERVICES_PATH}/piwigo.yml"
+      service: piwigo_db
   code-server:
     image: code-server
     container_name: code-server
