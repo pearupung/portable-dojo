@@ -1,0 +1,68 @@
+---
+version: "3.3"
+
+networks:
+  services-network:
+    ipam:
+      config:
+        - subnet: "$SERVICES_SUBNET"
+
+services:
+  piwigo:
+    extends:
+      file: "${SERVICES_PATH}/piwigo.yml"
+      service: piwigo_web
+  piwigo-db:
+    image: mysql
+    container_name: piwigo-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: "example"
+      MYSQL_DATABASE: "piwigo"
+      MYSQL_USER: "piwigo"
+      MYSQL_PASSWORD: "Tere123"
+    volumes:
+      - /var/lib/docker-volumes/piwigo/db:/var/lib/mysql
+    networks:
+      services-network:
+        ipv4_address: 172.18.0.8
+  code-server:
+    image: code-server
+    container_name: code-server
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Tallinn
+      - CS_ADDRESS_PORT=443
+      - SSL_CERT_PATH=/config/ssl/code-server-ssl.crt
+      - SSL_KEY_PATH=/config/ssl/code-server-ssl.key
+    volumes:
+      - ./volumes/code-server/config:/config
+      - ./volumes/code-server/etc/services.d/code-server:/etc/services.d/code-server
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      services-network:
+        ipv4_address: 172.18.0.14
+    restart: unless-stopped
+  
+  drawio:
+    hostname: drawio2
+    image: jgraph/drawio
+    container_name: drawio
+    restart: unless-stopped
+    ports:
+      - 127.0.0.1:3002:8080
+      - 127.0.0.1:3003:8443
+    environment:
+      PUBLIC_DNS: domain
+      ORGANISATION_UNIT: unit
+      ORGANISATION: org
+      CITY: city
+      STATE: state
+      COUNTRY_CODE: country
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://domain:8080 || exit 1"]
+      interval: 1m30s
+      timeout: 10s
+      retries: 5
+

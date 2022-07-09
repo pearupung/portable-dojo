@@ -1,0 +1,24 @@
+services:
+  piwigo_web:
+    extends:
+      file: "${TEMPLATE_FOLDER}/${WEB_TEMPLATE}.yml"
+      service: "${WEB_TEMPLATE}"
+    image: "${PIWIGO_IMAGE}"
+    container_name: "${PIWIGO_HOSTNAME}-${WEB_NAME}"
+    hostname: "${PIWIGO_HOSTNAME}-${WEB_NAME}"
+    volumes:
+      - "${VOLUME_FOLDER}/${PIWIGO_HOSTNAME}/config:/config"
+      - "${VOLUME_FOLDER}/${PIWIGO_HOSTNAME}/gallery:/gallery"
+    networks:
+      services-network:
+        ipv4_address: "${PIWIGO_IP}"
+  piwigo_db:
+    extends:
+      file: "${TEMPLATE_FOLDER}/${MYSQL_TEMPLATE}.yml"
+      service: "${MYSQL_TEMPLATE}"
+    container_name: "${PIWIGO_HOSTNAME}-${MYSQL_NAME}"
+    hostname: "${PIWIGO_HOSTNAME}-${MYSQL_NAME}"
+    volumes: 
+      - "${VOLUME_FOLDER}/${PIWIGO_HOSTNAME}/mysql:/var/lib/mysql"
+
+
