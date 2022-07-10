@@ -1,0 +1,11 @@
+services:
+  drawio:
+    extends:
+      file: "${TEMPLATE_FOLDER}/${WEB_TEMPLATE}.yml"
+      service: web
+    image: jgraph/drawio
+    container_name: drawio
+    hostname: drawio
+    ports:
+      - caddy-proxy:80:8080
+      - caddy-proxy:443:8443

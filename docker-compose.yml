@@ -20,3 +20,7 @@ services:
     extends:
       file: "${SERVICES_PATH}/piwigo.yml"
       service: piwigo_db
+  drawio:
+    extends:
+      file: "${SERVICES_PATH}/drawio.yml"
+      service: drawio
