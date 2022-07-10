@@ -1,0 +1,12 @@
+:80 {
+	log {
+		output stdout
+		format console
+		level INFO
+	}
+	@service-name {
+		header_regexp login Host ([^\.]+)\.localhost
+	}
+	header service-name X-proxy-header {re.login.1}
+	reverse_proxy @service-name {re.login.1}:80
+}

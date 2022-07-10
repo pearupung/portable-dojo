@@ -8,6 +8,10 @@ networks:
         - subnet: "$SERVICES_SUBNET"
 
 services:
+  caddy-proxy:
+    extends:
+      file: "${SERVICES_PATH}/caddy-proxy.yml"
+      service: caddy-proxy
   piwigo:
     extends:
       file: "${SERVICES_PATH}/piwigo.yml"
@@ -15,4 +19,4 @@ services:
   piwigo-db:
     extends:
       file: "${SERVICES_PATH}/piwigo.yml"
-      service: piwigo_db 
+      service: piwigo_db

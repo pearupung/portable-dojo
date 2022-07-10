@@ -9,9 +9,6 @@ services:
     volumes:
       - "${VOLUME_FOLDER}/${PIWIGO_HOSTNAME}/config:/config"
       - "${VOLUME_FOLDER}/${PIWIGO_HOSTNAME}/gallery:/gallery"
-    networks:
-      services-network:
-        ipv4_address: "${PIWIGO_IP}"
   piwigo_db:
     extends:
       file: "${TEMPLATE_FOLDER}/${DB_TEMPLATE}.yml"

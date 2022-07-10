@@ -1,0 +1,13 @@
+services:
+  caddy-proxy:
+    extends:
+      file: "${TEMPLATE_FOLDER}/${WEB_TEMPLATE}.yml"
+      service: web
+    image: caddy
+    container_name: caddy-proxy
+    hostname: caddy-proxy
+    ports:
+      - 127.0.0.1:80:80
+      - 127.0.0.1:443:443
+    volumes:
+      - "${CONFIG_FOLDER}/Caddyfile:/etc/caddy/Caddyfile"
