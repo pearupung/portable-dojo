@@ -1,0 +1,16 @@
+services:
+  gitlab:
+    extends:
+      file: "${TEMPLATE_FOLDER}/web.yml"
+      service: web
+    image: 'gitlab/gitlab-ee:latest'
+    container_name: 'gitlab'
+    hostname: 'gitlab'
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'https://gitlab.localhost'
+        # Add any other gitlab.rb configuration here, each on its own line
+    volumes:
+      - '${VOLUME_FOLDER}/gitlab/config:/etc/gitlab'
+      - '${VOLUME_FOLDER}/gitlab/logs:/var/log/gitlab'
+      - '${VOLUME_FOLDER}/gitlab/data:/var/opt/gitlab'

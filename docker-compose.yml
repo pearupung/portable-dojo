@@ -1,5 +1,5 @@
 ---
-version: "3.3"
+version: "3.8"
 
 networks:
   services-network:
@@ -24,3 +24,8 @@ services:
     extends:
       file: "${SERVICES_PATH}/drawio.yml"
       service: drawio
+  gitlab:
+    extends:
+      file: "${SERVICES_PATH}/gitlab.yml"
+      service: gitlab
+
