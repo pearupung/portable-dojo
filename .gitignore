@@ -1,2 +1,3 @@
 local.env
 volumes
+scripts/gitlab-token
