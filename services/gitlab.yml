@@ -6,6 +6,8 @@ services:
     image: 'gitlab/gitlab-ee:latest'
     container_name: 'gitlab'
     hostname: 'gitlab'
+    ports:
+      - 127.0.0.1:22:22
     environment:
       GITLAB_OMNIBUS_CONFIG: |
         external_url 'https://gitlab.localhost'
