@@ -1,20 +1,39 @@
 #!/bin/bash
 
-weekamount=$(($1 -1))
-echo Amount of milestones to be created: $weekamount
-projectid=$2
+numberregexp=^[0-9]+$
+
+while ! [[ $weekamount =~ $numberregexp ]]; do
+    echo I do not have a valid understanding how many milestones should be created.
+    echo How many weeks into the future should be covered with milestones? Enter a number!
+    read weekamount
+done
+
+echo
+echo Clear! Will create milestones from week $(date +%V -d '1 week') until week $(date +%V -d "$weekamount week"). 
+echo
+
+projectids=$(curl -Lsk -H @gitlab-token "https://gitlab.localhost/api/v4/projects/" | jq ".[].id")
+while ! [[ $projectid =~ $numberregexp && "${projectids[*]}" =~ "${projectid}" ]]; do
+    echo I do not know which project to add milestones to. Here are all of them:
+    curl -sLk -H @gitlab-token "https://gitlab.localhost/api/v4/projects" | jq --sort-keys -r '["ID","NAME"], ["--","------"],(.[] | [.id, .name]) | @tsv'
+    echo Which project do you choose? 
+    read projectid
+done
+
+let weekamount=weekamount-1
 echo Project ID: $projectid
+
 
 while [ $weekamount -ge 0 ]; do
     echo $weekamount
 
     let nextweek=weekamount+1
-    title=$(date +'Week %V' -d "$nextweek week")
+    title=$(date +'%Y Week %V' -d "$nextweek week")
     start_date=$(date +%F -d "monday $weekamount week")
     due_date=$(date +%F -d "sunday $nextweek week")
    
     data="title=$title&start_date=$start_date&due_date=$due_date"
     echo $data
-    curl -Lk -X POST -d "$data" -H @gitlab-token "https://gitlab.localhost/api/v4/projects/$projectid/milestones"
+    curl -Lsk -X POST -d "$data" -H @gitlab-token "https://gitlab.localhost/api/v4/projects/$projectid/milestones"
     let weekamount=weekamount-1
 done
