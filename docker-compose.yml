@@ -28,4 +28,46 @@ services:
     extends:
       file: "${SERVICES_PATH}/gitlab.yml"
       service: gitlab
+  taiga-db:
+    extends:
+      file: "${SERVICES_PATH}/taiga.yml"
+      service: taiga-db
+  taiga-back:
+    extends:
+      file: "${SERVICES_PATH}/taiga.yml"
+      service: taiga-back
+  taiga-async:
+    extends:
+      file: "${SERVICES_PATH}/taiga.yml"
+      service: taiga-async
+  taiga-async-rabbitmq:
+    extends:
+      file: "${SERVICES_PATH}/taiga.yml"
+      service: taiga-async-rabbitmq
+  taiga-front:
+    extends:
+      file: "${SERVICES_PATH}/taiga.yml"
+      service: taiga-front
+  taiga-events:
+    extends:
+      file: "${SERVICES_PATH}/taiga.yml"
+      service: taiga-events
+  taiga-events-rabbitmq:
+    extends:
+      file: "${SERVICES_PATH}/taiga.yml"
+      service: taiga-events-rabbitmq
+  taiga-protected:
+    extends:
+      file: "${SERVICES_PATH}/taiga.yml"
+      service: taiga-protected
+  taiga-gateway:
+    extends:
+      file: "${SERVICES_PATH}/taiga.yml"
+      service: taiga-gateway
 
+volumes:
+  taiga-static-data:
+  taiga-media-data:
+  taiga-db-data:
+  taiga-async-rabbitmq-data:
+  taiga-events-rabbitmq-data:
