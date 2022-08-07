@@ -1,15 +1,16 @@
-*.localhost {
-	log {
-		output stdout
-		format console
-		level INFO
-	}
-    @drawio-matcher {
-        header Host drawio.localhost
+   drawio.localhost \
+   gitlab.localhost \ 
+navidrome.localhost \ 
+ pics-web.localhost \
+    taiga.localhost \
+{
+    @drawio-matcher { 
+        header Host drawio.localhost 
     }
+	@service-matcher { 
+        header_regexp subdomain Host ([^\.]+)\.localhost 
+    } 
+
     reverse_proxy @drawio-matcher drawio:8080
-	@service-matcher {
-		header_regexp subdomain Host ([^\.]+)\.localhost
-	}
     reverse_proxy @service-matcher {re.subdomain.1}:80
 }
