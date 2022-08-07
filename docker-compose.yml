@@ -64,6 +64,10 @@ services:
     extends:
       file: "${SERVICES_PATH}/taiga.yml"
       service: taiga-gateway
+  navidrome:
+    extends:
+      file: "${SERVICES_PATH}/navidrome.yml"
+      service: navidrome
 
 volumes:
   taiga-static-data:
@@ -71,3 +75,5 @@ volumes:
   taiga-db-data:
   taiga-async-rabbitmq-data:
   taiga-events-rabbitmq-data:
+  navidata:
+  music:

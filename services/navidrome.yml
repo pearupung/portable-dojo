@@ -1,0 +1,18 @@
+version: "3"
+services:
+  navidrome:
+    image: deluan/navidrome:latest
+    container_name: navidrome
+    user: 1000:1000
+    restart: unless-stopped
+    networks:
+      - services-network
+    environment:
+      ND_PORT: 80  
+      ND_SCANSCHEDULE: 5m
+      ND_LOGLEVEL: info  
+      ND_SESSIONTIMEOUT: 24h
+      ND_BASEURL: ""
+    volumes:
+      - navidata:/data
+      - music:/music:ro
