@@ -11,3 +11,4 @@ services:
       - 127.0.0.1:443:443
     volumes:
       - "${CONFIG_FOLDER}/Caddyfile:/etc/caddy/Caddyfile"
+      - "${CONFIG_FOLDER}/ca:/data/caddy/pki/authorities/local"
