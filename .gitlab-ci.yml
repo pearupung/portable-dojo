@@ -1,3 +1,14 @@
-test:
+create-dirs:
   script:
-    - echo "Hello Gitlab-Runner"
+    - echo create dirs!
+    - cat test.yml | yq "del(.[].[].cover_art) | del(.[].[].[].[])" > dirs.yaml
+
+download-m4a-s:
+  script:
+    - echo download-m4a-s!
+
+download-cover-art:
+  script:
+    -echo dl-cover!
+
+
