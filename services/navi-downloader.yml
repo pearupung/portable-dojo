@@ -1,0 +1,18 @@
+services:
+  navi-dl:
+    image: gitlab/gitlab-runner:latest
+    hostname: navi-dl
+    container_name: navi-downloader
+    restart: unless-stopped
+    links:
+      - "caddy-proxy:gitlab.localhost"
+    volumes:
+      - music-test:/var/lib/music
+      - navi-dl-conf:/etc/gitlab-runner
+      - ca:/etc/gitlab-runner/certs/
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ="Europe/Tallinn"
+    networks:
+      - services-network

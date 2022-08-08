@@ -68,6 +68,10 @@ services:
     extends:
       file: "${SERVICES_PATH}/navidrome.yml"
       service: navidrome
+  navi-dl:
+    extends:
+      file: "${SERVICES_PATH}/navi-downloader.yml"
+      service: navi-dl
 
 volumes:
   taiga-static-data:
@@ -77,3 +81,16 @@ volumes:
   taiga-events-rabbitmq-data:
   navidata:
   music:
+  ca:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: ${CONFIG_FOLDER}/ca/
+  navi-dl-conf:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: ${CONFIG_FOLDER}/navi-dl/
+  music-test:
