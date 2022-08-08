@@ -2,6 +2,14 @@ create-dirs:
   script:
     - echo create dirs!
     - cat config/navi-music.yml | yq "del(.[].[].cover_art) | del(.[].[].[].[])" > dirs.yaml
+    - yamldirs dirs.yaml
+
+create-ref-files:
+  script:
+    - cat config/navi-music.yml | yq '.[].[] | {"album": [{"path": path | .[0] + "/" + .[1] + "/" + "cover_art.m4a"}, {"url": .cover_art}]}' > covers.yml
+    - cat config/navi-music.yml | yq 'del(.[].[].cover_art) | .[].[].[] | {"song": [{"path": path | .[0] + "/" + .[1] + "/" + .[2] + ".m4a"}, {"url": .url}, {"artist": path | .[0]}, {"album": path | .[1]}, {"title": path | .[2]}, {"start_time": .start_time}, {"end_time": .end_time}]}' > songs.yml
+
+
 
 download-m4a-s:
   script:
