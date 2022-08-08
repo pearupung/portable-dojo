@@ -1,7 +1,7 @@
 create-dirs:
   script:
     - echo create dirs!
-    - cat test.yml | yq "del(.[].[].cover_art) | del(.[].[].[].[])" > dirs.yaml
+    - cat config/navi-music.yml | yq "del(.[].[].cover_art) | del(.[].[].[].[])" > dirs.yaml
 
 download-m4a-s:
   script:
