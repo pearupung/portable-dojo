@@ -3,3 +3,4 @@ volumes
 scripts/gitlab-token
 config/ca/root*
 config/ca/intermediate*
+builds/
