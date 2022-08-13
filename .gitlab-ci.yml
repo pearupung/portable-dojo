@@ -1,6 +1,6 @@
 create-ref-files:
   script:
-    - ./scripts/get-navi-ref
+    - ./scripts/populate-music
 
 
 download-m4a-s:
