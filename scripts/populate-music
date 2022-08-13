@@ -40,7 +40,7 @@ def populate_music(music):
             for title, data in titles.items():
                 ydl_opts = {
                     'verbose': True,
-                    'outtmpl': f'{artist}/{album}/{title}.m4a',
+                    'outtmpl': f'/var/lib/music/{artist}/{album}/{title}.m4a',
                     'format': '140',
                     'postprocessors': [
                         {
