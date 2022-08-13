@@ -1,14 +1,3 @@
 create-ref-files:
   script:
     - ./scripts/populate-music
-
-
-download-m4a-s:
-  script:
-    - echo download-m4a-s!
-
-download-cover-art:
-  script:
-    -echo dl-cover!
-
-
