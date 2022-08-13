@@ -1,18 +1,66 @@
 Bo Burnham:
   Inside:
+    cover_art: https://m.media-amazon.com/images/I/61BT8gBPPSS._SS500_.jpg
     That Funny Feeling:
       url: https://www.youtube.com/watch?v=ObOqq1knVxs
-      start_time: 1
-      end_time: 30
-    cover_art: https://m.media-amazon.com/images/I/61BT8gBPPSS._SS500_.jpg
-Bos Burnham:
-  Inside:
-    That Funny Feeling:
-      url: https://www.youtube.com/watch?v=ObOqq1knVxs
-    cover_art: https://m.media-amazon.com/images/I/61BT8gBPPSS._SS500_.jpg
+    Welcome to the Internet:
+      url: https://www.youtube.com/watch?v=k1BneeJTDcU
+    White Woman's Instagram:
+      url: https://www.youtube.com/watch?v=xHotXbGZiFY
+    All Eyes On Me:
+      url: https://www.youtube.com/watch?v=1Rx_p3NW7gQ
+
+
 Caravan Palace:
   Chronologic:
     cover_art: https://upload.wikimedia.org/wikipedia/en/5/5d/Caravan_Palace_-_Chronologic.png
     Moonshine:
       url: https://www.youtube.com/watch?v=MaeRXppkzdA
+    Lone Digger:
+      url: https://www.youtube.com/watch?v=UbQgXeY_zi4
+    Aftermath:
+      url: https://www.youtube.com/watch?v=imCd-m32oAs
+
+
+Alexis Jordan:
+  Alexis Jordan:
+    cover_art: https://upload.wikimedia.org/wikipedia/en/9/94/AlexisJordan_album.jpg
+    Happiness:
+      url: https://www.youtube.com/watch?v=26jKtELitQE
+    Happiness (deadmau5 remix helter edit):
+      url: https://www.youtube.com/watch?v=_3rYQ9Mf5es
+
+deadmau5:
+  Random Album Title:
+    cover_art: https://www.discogs.com/ru/release/2044567-Deadmau5-Random-Album-Title/image/SW1hZ2U6NDkzMzI4OA==
+    I Remember:
+      url: https://www.youtube.com/watch?v=zK1mLIeXwsQ
+  For Lack of a Better Name:
+    cover_art: https://upload.wikimedia.org/wikipedia/en/e/e6/ForLackofaBetterNameAlbum.jpg
+    Ghosts \'n\' stuff:
+      url: https://www.youtube.com/watch?v=pb-EwykPTv8
+    Strobe:
+      url: https://www.youtube.com/watch?v=tKi9Z-f6qX4
+  "Mau5ville: Level 1":
+    cover_art: https://upload.wikimedia.org/wikipedia/en/7/78/Deadmau5_-_mau5ville_Level_1.jpg
+    Monophobia:
+      url: https://www.youtube.com/watch?v=NESCd6IFfLM
+
+#CR14:
+#Minecraft soundtrack:
+
+
+Bastille:
+  Bad Blood:
+    cover_art: https://www.discogs.com/master/539793-Bastille-Bad-Blood/image/SW1hZ2U6ODYyMjA5Mg==
+    Pompeii:
+      url: https://www.youtube.com/watch?v=F90Cw4l-8NY
+    Things We Lost in the Fire:
+      url: https://www.youtube.com/watch?v=MGR4U7W1dZU
+    Bad Blood:
+      url: https://www.youtube.com/watch?v=qoNYlV07Cf8
+    Icarus:
+      url: https://www.youtube.com/watch?v=FehA9OwZflw
+    Of the Night:
+      url: https://www.youtube.com/watch?v=F90Cw4l-8NY
 
