@@ -1,0 +1,70 @@
+#!/usr/bin/python3
+from __future__ import unicode_literals
+import yaml
+import youtube_dl
+import requests
+import os
+
+def import_yaml(filename: str):
+    with open(filename, "r") as stream:
+        try:
+            return yaml.safe_load(stream)
+        except yaml.YAMLError as exc:
+            print(exc)
+
+def import_data():
+    data = {"navi-music": None}
+    for data_category in data:
+        data[data_category] = import_yaml(f"scripts/{data_category}.yml")
+    return data
+
+def download_cover(url, destination):
+    response = requests.get(url)
+    os.makedirs(os.path.dirname(destination), exist_ok=True)
+    with open(destination, "wb") as dest:
+        dest.write(response.content)
+
+def download_music(url, destination, opts):
+    with youtube_dl.YoutubeDL(opts) as ydl:
+        ydl.download([url])
+
+def populate_music(music):
+    
+    for artist, content in music.items():
+        print("artist: " + artist)
+        
+        for album, titles in content.items():
+            print("album: " + album)
+            cover_art_url = titles.pop('cover_art')
+            download_cover(cover_art_url, f"{artist}/{album}/cover.jpeg")
+            for title, data in titles.items():
+                ydl_opts = {
+                    'verbose': True,
+                    'outtmpl': f'{artist}/{album}/{title}.m4a',
+                    'format': '140',
+                    'postprocessors': [
+                        {
+                            'key': 'FFmpegMetadata',
+                        },
+                    ],
+                    'postprocessor_args': [
+                        '-metadata', 
+                        f'artist={artist}',
+                        '-metadata', 
+                        f'album={album}',
+                        '-metadata', 
+                        f'title={title}',
+                    ]
+                }
+                print("title: " + title)
+                print("data: " + str(data))
+                download_music(data['url'], f'{artist}/{album}/{title}.m4a', ydl_opts)
+                print(ydl_opts)
+
+if __name__ == "__main__":
+    music=import_data()['navi-music']
+    populate_music(music)
+    print("Hi!")
+    #with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+     #   pass
+        #ydl.download(['https://www.youtube.com/watch?v=BaW_jenozKc'])
