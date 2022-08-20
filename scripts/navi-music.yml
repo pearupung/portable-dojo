@@ -50,6 +50,48 @@ deadmau5:
 
 #CR14:
 #Minecraft soundtrack:
+# Creep
+# Childish Gambino
+# half alive
+# Portugal the man
+# Think about things
+# dua lipa
+# Glass animals
+# Imagine dragons
+# Jazz emu
+# Pentatonix
+# Daft Punk
+
+Example:
+  Won't Go Down Quietly:
+    cover_art: https://images.genius.com/1ec6672fa52d1d6a7f310dba323f78dd.467x467x1.jpg
+    Kickstarts:
+      url: https://www.youtube.com/watch?v=T9yGcKlYAiw
+    Watch the Sun Come Up:
+      url: https://www.youtube.com/watch?v=bAgegxdVdFU
+    Won't Go Down Quietly:
+      url: https://www.youtube.com/watch?v=-So9lXFt5rM
+    Last Ones Standing:
+      url: https://www.youtube.com/watch?v=qklFpvW7IME
+    Two Lives:
+      url: https://www.youtube.com/watch?v=Zn60dbD0CsE
+  Playing in the Shadows:
+    cover_art: https://upload.wikimedia.org/wikipedia/en/e/ee/PlayingintheShadows.jpg
+    Changed the Way You Kiss Me:
+      url: https://www.youtube.com/watch?v=CLXt3yh2g0s
+    Stay Awake:
+      url: https://www.youtube.com/watch?v=f5CcOq8UzkI
+    Midnight Run:
+      url: https://www.youtube.com/watch?v=m9U0TEC1YMI
+  Live Life Living:
+    cover_art: https://upload.wikimedia.org/wikipedia/en/0/03/Example_Live_Life_Living_2.jpg
+    10 Million People:
+      url: https://www.youtube.com/watch?v=nwtjaPuDgik
+
+
+#Tom Cardy:
+#Youtube:
+
 
 
 Bastille:
