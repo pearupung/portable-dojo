@@ -38,9 +38,11 @@ def populate_music(music):
             cover_art_url = titles.pop('cover_art')
             download_cover(cover_art_url, f"/var/lib/music/{artist}/{album}/cover.jpeg")
             for title, data in titles.items():
+                file_path =  f'/var/lib/music/{artist}/{album}/{title}.m4a'
+                if os.path.isfile(file_path): continue
                 ydl_opts = {
                     'verbose': True,
-                    'outtmpl': f'/var/lib/music/{artist}/{album}/{title}.m4a',
+                    'outtmpl': file_path,
                     'format': '140',
                     'postprocessors': [
                         {
