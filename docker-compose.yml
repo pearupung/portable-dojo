@@ -72,6 +72,11 @@ services:
     extends:
       file: "${SERVICES_PATH}/navi-downloader.yml"
       service: navi-dl
+  docker-registry:
+    extends:
+      file: "${SERVICES_PATH}/docker-registry.yml"
+      service: docker-registry
+
 
 volumes:
   taiga-static-data:
@@ -79,6 +84,7 @@ volumes:
   taiga-db-data:
   taiga-async-rabbitmq-data:
   taiga-events-rabbitmq-data:
+  docker-registry-data:
   navidata:
   music:
   ca:

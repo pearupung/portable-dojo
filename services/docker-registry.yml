@@ -1,0 +1,13 @@
+services:
+  docker-registry:
+    image: registry:2
+    hostname: registry
+    container_name: docker-registry
+    restart: unless-stopped
+    environment:
+      - REGISTRY_HTTP_ADDR=0.0.0.0:80
+    volumes:
+      - docker-registry-data:/var/lib/registry
+    networks:
+      - services-network
+

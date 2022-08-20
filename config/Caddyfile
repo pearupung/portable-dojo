@@ -1,8 +1,9 @@
-   drawio.localhost \
-   gitlab.localhost \ 
-navidrome.localhost \ 
- pics-web.localhost \
-    taiga.localhost \
+            taiga.localhost \
+           drawio.localhost \
+           gitlab.localhost \ 
+         pics-web.localhost \
+        navidrome.localhost \
+  docker-registry.localhost \
 {
     @drawio-matcher { 
         header Host drawio.localhost 
