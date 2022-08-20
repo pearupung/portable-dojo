@@ -1,3 +1,6 @@
 create-ref-files:
   script:
     - ./scripts/populate-music
+  rules:
+    - changes: scripts/navi-music.yml
+    - changes: scripts/populate-music
