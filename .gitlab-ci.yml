@@ -1,4 +1,4 @@
-create-ref-files:
+download-music:
   script:
     - ./scripts/populate-music
   rules:
