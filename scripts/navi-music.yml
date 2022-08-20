@@ -83,8 +83,21 @@ Example:
       url: https://www.youtube.com/watch?v=f5CcOq8UzkI
     Midnight Run:
       url: https://www.youtube.com/watch?v=m9U0TEC1YMI
+  The Evolution of Man:
+    cover_art: https://upload.wikimedia.org/wikipedia/en/e/ef/Example_TEOM.jpg
+    Say Nothing:
+      url: https://www.youtube.com/watch?v=HdoP2UmnEBM
+    Close Enemies:
+      url: https://www.youtube.com/watch?v=Wc6dZL3TgJs
+    Perfect Replacement:
+      url: https://www.youtube.com/watch?v=HmVTK-4Mawk
+
   Live Life Living:
     cover_art: https://upload.wikimedia.org/wikipedia/en/0/03/Example_Live_Life_Living_2.jpg
+    All the Wrong Places:
+      url: https://www.youtube.com/watch?v=j_2kVtUCj-E
+    One More Day:
+      url: https://www.youtube.com/watch?v=E-bYftKKIQA
     10 Million People:
       url: https://www.youtube.com/watch?v=nwtjaPuDgik
 
